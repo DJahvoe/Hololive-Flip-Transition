@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hololive Flip Transition</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<!-- after 10 -->
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+			<div class="bg0"></div>
+		</div>
+		<p class="copyright"></p>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				// DOM Selector
+				const gridElements = [...document.querySelectorAll('.container > div')];
+				const copyRightText = document.querySelector('.copyright');
+
+				// imageList
+				const imageList = [
+					{ imageClass: 'tokino_sora', createdBy: 'SubaruSumeragi' },
+					{ imageClass: 'azki', createdBy: 'SubaruSumeragi' },
+					{ imageClass: 'roboco', createdBy: 'SubaruSumeragi' },
+					{ imageClass: 'sakura_miko', createdBy: 'SubaruSumeragi' },
+					{ imageClass: 'shirakami_fubuki', createdBy: 'SubaruSumeragi' },
+				];
+				let counter = 1;
+
+				// initialization
+				gridElements.forEach((element) => {
+					element.classList = imageList[0].imageClass;
+				});
+				copyRightText.textContent = `Image by ${imageList[0].createdBy}`;
+
+				// Remove rotate class when transition is finished
+				gridElements.forEach((element) => {
+					element.addEventListener('transitionend', (e) => {
+						e.target.classList.remove('rotate');
+					});
+				});
+
+				// Change image class and textContent for copyright
+				const animateTransition = () => {
+					gridElements.forEach((element, index) => {
+						element.style.transitionDelay = `${index * 0.1}s`;
+						element.classList = `${imageList[counter].imageClass} rotate`;
+					});
+					copyRightText.textContent = `Image by ${imageList[counter].createdBy}`;
+					counter++;
+					counter %= imageList.length;
+				};
+
+				// Repeat every 5 seconds
+				setInterval(animateTransition, 5000);
+			});
+		</script>
+	</body>
+</html>
