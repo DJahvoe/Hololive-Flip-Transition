@@ -43,6 +43,7 @@
 				// DOM Selector
 				const gridElements = [...document.querySelectorAll('.container > div')];
 				const copyRightText = document.querySelector('.copyright');
+				const body = document.querySelector('body');
 
 				// imageList
 				const imageList = [
@@ -53,6 +54,15 @@
 					{ imageClass: 'shirakami_fubuki', createdBy: 'SubaruSumeragi' },
 				];
 				let counter = 1;
+
+				// load optimization
+				imageList.forEach((image) => {
+					console.log(image);
+					const newDiv = document.createElement('div');
+					newDiv.classList = image.imageClass;
+					newDiv.style.display = 'block';
+					body.appendChild(newDiv);
+				});
 
 				// initialization
 				gridElements.forEach((element) => {
