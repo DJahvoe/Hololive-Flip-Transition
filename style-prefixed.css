@@ -1,0 +1,71 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (1fr) [5];
+	grid-template-columns: repeat(5, 1fr);
+	height: 100vh;
+}
+
+.container > div {
+	height: 100%;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.tokino_sora {
+	background: url('./tokino_sora.jpg');
+}
+
+.roboco {
+	background: url('./roboco.jpg');
+}
+
+.azki {
+	background: url('./azki.png');
+}
+
+.sakura_miko {
+	background: url('./sakura_miko.png');
+}
+
+.shirakami_fubuki {
+	background: url('./shirakami_fubuki.png');
+}
+
+.copyright {
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	text-shadow: 2px 2px black;
+	color: white;
+}
+
+.rotate {
+	-webkit-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+	-webkit-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
